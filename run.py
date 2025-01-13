@@ -15,3 +15,16 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SPREADSHEET = GSPREAD_CLIENT.open('to_do_list')
 TASKS_WORKSHEET = SPREADSHEET.worksheet('tasks')
+
+
+def retrieve_data(worksheet):
+    '''
+    Retrieves worksheet data as a list of dictionaries,
+    where each dictionary represents a row in the worksheet.
+
+    Returns: list[dict] or list[]
+    '''
+    return worksheet.get_all_records()
+
+
+tasks = retrieve_data(TASKS_WORKSHEET)
