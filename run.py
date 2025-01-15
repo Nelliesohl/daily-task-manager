@@ -218,6 +218,11 @@ def add_task(tasks):
     add_task_to_sheet(new_task)
 
 
+def complete_task(active_tasks):
+    '''
+    '''
+
+
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
     Takes:
@@ -229,7 +234,7 @@ def handle_menu_choice(choice, tasks, active_tasks):
     if choice == 'a':
         add_task(tasks)
     elif choice == 'c':
-        print("completing task")
+        complete_task(active_tasks)
     elif choice == 'd':
         print("deleting task")
     elif choice == 'e':
