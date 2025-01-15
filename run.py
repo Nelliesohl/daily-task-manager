@@ -101,15 +101,22 @@ def display_todo_list(active_tasks):
 
 def get_menu_choice():
     '''
-    Prompts user for menu choice.
+    Prompts user for menu choice until a valid choice is entered.
+
+    Options:
     - add
     - complete
     - delete
     - exit program
 
-    Returns: User input (str)
+    Returns: Valid user input (str)
     '''
-    choice = input("\nEnter: (a) to add, (c) to complete, (d) to delete, (e) to exit\n")
+    while True:
+        choice = input("\nEnter: (a) to add, (c) to complete, (d) to delete, (e) to exit\n").lower()
+        if validate_menu_choice(choice):
+            break
+    
+    return choice
 
 
 def validate_menu_choice(choice):
@@ -130,6 +137,7 @@ def validate_menu_choice(choice):
         print(HORIZONTAL_LINE)
         return False
     return True
+
 
 tasks = retrieve_data(TASKS_WORKSHEET)
 active_tasks = exclude_inactive_tasks(tasks)
