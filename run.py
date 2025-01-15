@@ -275,11 +275,30 @@ def validate_pending_status(task):
     return True
 
 
+def update_task_in_sheet(worksheet, task, column, value):
+    '''
+    Takes worksheet: worksheet object to perform updates on
+          task: a dictionary representing a task,
+          column: the column number to update (int),
+          value: new value
+
+    Finds the task by its item_id in the worksheet and updates corresponding cell.
+    '''
+    cell = worksheet.find(str(task['item_id']))
+    worksheet.update_cell(cell.row, column, str(value))
+
+
+
 def complete_task(active_tasks):
     '''
     '''
     task_name = input("\nTask to complete:\n").capitalize()
     task = find_task_by_name(task_name)
+    if validate_task_exists(task):
+        if validate_pending_status(task):
+
+
+
     
         
 
