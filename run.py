@@ -221,6 +221,7 @@ def add_task(tasks):
 def complete_task(active_tasks):
     '''
     '''
+    task_name = input("\nTask to complete:\n").capitalize()
 
 
 def handle_menu_choice(choice, tasks, active_tasks):
