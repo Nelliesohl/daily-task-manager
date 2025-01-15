@@ -198,6 +198,14 @@ def add_task_to_sheet(new_task):
 
 def add_task(tasks):
     '''
+    Creates and adds a new task to the tasks worksheet.
+
+    - Generates unique item_id
+    - Prompts user for task name
+    - Sets default values for done and active fields
+    - Retrieves the current date as created_on
+    
+    Appends list of new task data to sheet.
     '''
     item_id = generate_new_id(tasks)
     name = get_task_name()
@@ -206,6 +214,8 @@ def add_task(tasks):
     created_on = get_current_date()
 
     new_task = [item_id, name, done, active, created_on]
+
+    add_task_to_sheet(new_task)
 
 
 def handle_menu_choice(choice, tasks, active_tasks):
