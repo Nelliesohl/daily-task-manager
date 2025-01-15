@@ -181,6 +181,13 @@ def validate_task_name(name):
     return True
 
 
+def get_current_date():
+    '''
+    Returns: the current date in format YYYY-MM-DD
+    '''
+    return datetime.today().strftime('%Y-%m-%d')
+
+
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
     Takes:
@@ -194,6 +201,7 @@ def handle_menu_choice(choice, tasks, active_tasks):
         name = get_task_name()
         done = False
         active = True
+        created_on = get_current_date()
     elif choice == 'c':
         print("completing task")
     elif choice == 'd':
