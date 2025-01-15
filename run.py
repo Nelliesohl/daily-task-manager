@@ -218,6 +218,22 @@ def add_task(tasks):
     add_task_to_sheet(new_task)
 
 
+def find_task_by_name(task_name, active_tasks):
+    '''
+    Searches for a task by name in active tasks: list of task dictionaires.
+
+    Takes:
+        task_name: name of the task to find (str),
+        active_tasks: list of task dictionaries.
+
+    Returns:
+        Task dictionary if found, otherwise None.
+    '''
+    for task in active_tasks:
+        if str(task['name']) == task_name:
+            return task
+
+
 def complete_task(active_tasks):
     '''
     '''
