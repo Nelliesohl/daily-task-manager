@@ -59,5 +59,20 @@ def format_task(task):
     return f"[x] {task['name']}" if task['done'] == 'TRUE' else f"[ ] {task['name']}"
 
 
+def display_formatted_tasks(active_tasks):
+    '''
+    Applies string formatting to active tasks: list of task dictionaries,
+    and displays formatted tasks in terminal.
+
+    Shows "Empty" if there's no active tasks to display.
+    '''
+    if active_tasks:
+        for task in active_tasks:
+            print(format_task(task))
+    else:
+        print("Empty")
+
+
 tasks = retrieve_data(TASKS_WORKSHEET)
 active_tasks = exclude_inactive_tasks(tasks)
+display_formatted_tasks(active_tasks)
