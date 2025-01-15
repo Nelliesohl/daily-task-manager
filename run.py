@@ -188,12 +188,12 @@ def get_current_date():
     return datetime.today().strftime('%Y-%m-%d')
 
 
-def add_task_to_sheet(new_task):
+def add_task_to_sheet(task_data):
     '''
     Takes new task data: [item_id, name, done, active, created_on]
     and appends it as a new row in the tasks worksheet.
     '''
-    TASKS_WORKSHEET.append_row(new_task)
+    TASKS_WORKSHEET.append_row(task_data)
 
 
 def add_task(tasks):
