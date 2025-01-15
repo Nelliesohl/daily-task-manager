@@ -99,6 +99,20 @@ def display_todo_list(active_tasks):
     print(HORIZONTAL_LINE)
 
 
+def get_menu_choice():
+    '''
+    Prompts user for menu choice.
+    - add
+    - complete
+    - delete
+    - exit program
+
+    Returns: User input (str)
+    '''
+    choice = input("\nEnter: (a) to add, (c) to complete, (d) to delete, (e) to exit\n")
+
+
 tasks = retrieve_data(TASKS_WORKSHEET)
 active_tasks = exclude_inactive_tasks(tasks)
 display_todo_list(active_tasks)
+choice = get_menu_choice()
