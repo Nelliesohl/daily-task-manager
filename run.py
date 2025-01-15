@@ -71,7 +71,7 @@ def format_task(task):
 
     Returns: Formatted string with visual progress markers.
     '''
-    return f"[x] {task['name']}" if task['done'] == 'TRUE' else f"[ ] {task['name']}"
+    return f"[x] {strikethrough(task['name'])}" if task['done'] == 'TRUE' else f"[ ] {task['name']}"
 
 
 def display_formatted_tasks(active_tasks):
