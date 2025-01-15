@@ -149,11 +149,14 @@ def generate_new_id(tasks):
 
 def get_task_name():
     '''
-    Prompts user for task name
-
-    Returns: User input (capitalized str)
+    Prompts user for task name until input entered is not empty.
+    
+    Returns: Valid user input (capitalized str)
     '''
-    name = input("\nTask to add:\n").capitalize()
+    while True:
+        name = input("\nTask to add:\n").capitalize()
+        if validate_task_name(name):
+            break
 
     return name
 
