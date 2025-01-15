@@ -16,6 +16,12 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SPREADSHEET = GSPREAD_CLIENT.open('to_do_list')
 TASKS_WORKSHEET = SPREADSHEET.worksheet('tasks')
 
+APP_HEADING = r'''
+___  __      __   __             __  ___
+ |  /  \    |  \ /  \    |    | /__`  | 
+ |  \__/    |__/ \__/    |___ | .__/  |
+'''
+
 
 def retrieve_data(worksheet):
     '''
