@@ -323,6 +323,16 @@ def delete_task(active_tasks):
         update_task_in_sheet(worksheet=TASKS_WORKSHEET, task=task, column=4, value=False)
 
 
+def exit_program():
+    '''
+    Prints goodbye message and exits the program.
+    '''
+    print(HORIZONTAL_LINE)
+    print(f"{"Goodbye".center(80)}")
+    print(HORIZONTAL_LINE)
+    exit()
+
+
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
     Takes:
@@ -338,7 +348,7 @@ def handle_menu_choice(choice, tasks, active_tasks):
     elif choice == 'd':
         delete_task(active_tasks)
     elif choice == 'e':
-        print("exiting program")
+        exit_program()
 
 
 tasks = retrieve_data(TASKS_WORKSHEET)
