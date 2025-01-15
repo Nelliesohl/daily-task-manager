@@ -43,5 +43,21 @@ def exclude_inactive_tasks(tasks):
     return active_tasks
 
 
+def format_task(task):
+    '''
+    Formats task: dictionary into a presentable string for display.
+
+    Status symbols:
+    - [x] Applied to completed task
+    - [ ] Applied to pending task
+
+    Task name:
+    - Strikethrough applied to completed task name
+
+    Returns: Formatted string with visual progress markers.
+    '''
+    return f"[x] {task['name']}" if task['done'] == 'TRUE' else f"[ ] {task['name']}"
+
+
 tasks = retrieve_data(TASKS_WORKSHEET)
 active_tasks = exclude_inactive_tasks(tasks)
