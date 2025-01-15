@@ -234,10 +234,31 @@ def find_task_by_name(task_name, active_tasks):
             return task
 
 
+def validate_task_exists(task):
+    '''
+    Takes task: a task dictionary or None,
+    and check if the task exists.
+
+    Raises ValueError: if task is None.
+
+    Returns: True / False
+    '''
+    try:
+        if not task:
+            raise ValueError("Task not found")
+    except ValueError as e:
+        print(HORIZONTAL_LINE)
+        print(f"Error: {e}.")
+        print(HORIZONTAL_LINE)
+        return False
+    return True
+
+
 def complete_task(active_tasks):
     '''
     '''
     task_name = input("\nTask to complete:\n").capitalize()
+    task = find_task_by_name(task_name)
 
 
 def handle_menu_choice(choice, tasks, active_tasks):
