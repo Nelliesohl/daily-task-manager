@@ -147,6 +147,17 @@ def generate_new_id(tasks):
     return len(tasks) + 1
 
 
+def get_task_name():
+    '''
+    Prompts user for task name
+
+    Returns: User input (capitalized str)
+    '''
+    name = input("\nTask to add:\n").capitalize()
+
+    return name
+
+
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
     Takes:
@@ -157,6 +168,7 @@ def handle_menu_choice(choice, tasks, active_tasks):
     '''
     if choice == 'a':
         item_id = generate_new_id(tasks)
+        name = get_task_name()
     elif choice == 'c':
         print("completing task")
     elif choice == 'd':
