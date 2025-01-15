@@ -112,6 +112,25 @@ def get_menu_choice():
     choice = input("\nEnter: (a) to add, (c) to complete, (d) to delete, (e) to exit\n")
 
 
+def validate_menu_choice(choice):
+    '''
+    Takes choice: user input (str),
+    and checks if it's a valid menu choice.
+
+    Raises ValueError: if choice is not a valid menu option.
+
+    Returns: True / False
+    '''
+    try:
+        if choice not in ['a','c','d','e']:
+            raise ValueError("Invalid menu choice")
+    except ValueError as e:
+        print(HORIZONTAL_LINE)
+        print(f"Error: {e}. Please try again!")
+        print(HORIZONTAL_LINE)
+        return False
+    return True
+
 tasks = retrieve_data(TASKS_WORKSHEET)
 active_tasks = exclude_inactive_tasks(tasks)
 display_todo_list(active_tasks)
