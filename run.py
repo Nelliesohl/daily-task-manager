@@ -158,6 +158,26 @@ def get_task_name():
     return name
 
 
+def validate_task_name(name):
+    '''
+    Takes name: user input (str),
+    and checks if input contains characters.
+
+    Raises ValueError: if input is empty.
+
+    Returns: True / False
+    '''
+    try:
+        if not name:
+            raise ValueError("Task name cannot be empty")
+    except ValueError as e:
+        print(HORIZONTAL_LINE)
+        print(f"Error: {e}. Please try again!")
+        print(HORIZONTAL_LINE)
+        return False
+    return True
+
+
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
     Takes:
