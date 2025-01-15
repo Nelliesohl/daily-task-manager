@@ -254,11 +254,34 @@ def validate_task_exists(task):
     return True
 
 
+def validate_pending_status(task):
+    '''
+    Takes task: a task dictionary,
+    and checks if the task is already completed.
+
+    Raises ValueError: if task is already completed
+
+    Returns: True / False
+    
+    '''
+    try:
+        if task['done'] == 'TRUE':
+            raise ValueError("The task you've entered is already completed")
+    except ValueError as e:
+        print(HORIZONTAL_LINE)
+        print(f"Error: {e}.")
+        print(HORIZONTAL_LINE)
+        return False
+    return True
+
+
 def complete_task(active_tasks):
     '''
     '''
     task_name = input("\nTask to complete:\n").capitalize()
     task = find_task_by_name(task_name)
+    
+        
 
 
 def handle_menu_choice(choice, tasks, active_tasks):
