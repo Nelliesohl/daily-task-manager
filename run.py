@@ -139,7 +139,26 @@ def validate_menu_choice(choice):
     return True
 
 
+def handle_menu_choice(choice, tasks, active_tasks):
+    '''
+    Takes:
+        choice: user input (str), 
+        tasks: unfiltered list of task dictionaries,
+        active tasks: filtered list of task dictionaries,
+    to handle corresponding menu actions.
+    '''
+    if choice == 'a':
+        print("adding task")
+    elif choice == 'c':
+        print("completing task")
+    elif choice == 'd':
+        print("deleting task")
+    elif choice == 'e':
+        print("exiting program")
+
+
 tasks = retrieve_data(TASKS_WORKSHEET)
 active_tasks = exclude_inactive_tasks(tasks)
 display_todo_list(active_tasks)
 choice = get_menu_choice()
+handle_menu_choice(choice, tasks, active_tasks)
