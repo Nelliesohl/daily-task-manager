@@ -139,6 +139,14 @@ def validate_menu_choice(choice):
     return True
 
 
+def generate_new_id(tasks):
+    '''
+    Takes tasks: list of all tasks and generates a new unique item_id
+    based on the length of the task list.
+    '''
+    return len(tasks) + 1
+
+
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
     Takes:
@@ -148,7 +156,7 @@ def handle_menu_choice(choice, tasks, active_tasks):
     to handle corresponding menu actions.
     '''
     if choice == 'a':
-        print("adding task")
+        item_id = generate_new_id(tasks)
     elif choice == 'c':
         print("completing task")
     elif choice == 'd':
