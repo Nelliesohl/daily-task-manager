@@ -21,6 +21,7 @@ ___  __      __   __             __  ___
  |  /  \    |  \ /  \    |    | /__`  | 
  |  \__/    |__/ \__/    |___ | .__/  |
 '''
+HORIZONTAL_LINE = "-" * 80
 
 
 def retrieve_data(worksheet):
@@ -79,9 +80,17 @@ def display_formatted_tasks(active_tasks):
         print("Empty")
 
 
+def display_todo_list(active_tasks):
+    '''
+    Displays formatted to-do list with:
+    heading, visual list container and list contents.
+    '''
+    print(APP_HEADING)
+    print(HORIZONTAL_LINE)
+    display_formatted_tasks(active_tasks)
+    print(HORIZONTAL_LINE)
+
+
 tasks = retrieve_data(TASKS_WORKSHEET)
 active_tasks = exclude_inactive_tasks(tasks)
-print(APP_HEADING)
-print("-" * 80)
-display_formatted_tasks(active_tasks)
-print("-" * 80)
+display_todo_list(active_tasks)
