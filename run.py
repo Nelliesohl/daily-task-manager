@@ -27,4 +27,21 @@ def retrieve_data(worksheet):
     return worksheet.get_all_records()
 
 
+def exclude_inactive_tasks(tasks):
+    '''
+    Takes worksheet task data: list of task dictionaries,
+    and filters out inactive tasks (soft deleted entries).
+    
+    Returns: list[dict] or list[]
+    '''
+    active_tasks = []
+
+    for task in tasks:
+        if task['active'] == 'TRUE':
+            active_tasks.append(task)
+    
+    return active_tasks
+
+
 tasks = retrieve_data(TASKS_WORKSHEET)
+active_tasks = exclude_inactive_tasks(tasks)
