@@ -306,6 +306,23 @@ def complete_task(active_tasks):
             update_task_in_sheet(worksheet=TASKS_WORKSHEET, task=task, column=3, value=True)
         
 
+def delete_task(active_tasks):
+    '''
+    Prompts user to input task name to delete.
+
+    Takes active_tasks: a list of dictionaries and
+    - Finds the task by name
+    - Validates if the task exists and is not already completed
+
+    Updates active field in the tasks worksheet to False 
+    (soft deletes task)
+    '''
+    tasks_name = input("\nTask to delete:\n").capitalize()
+    task = find_task_by_name(tasks_name, active_tasks)
+    if validate_task_exists(task):
+        update_task_in_sheet(worksheet=TASKS_WORKSHEET, task=task, column=4, value=False)
+
+
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
     Takes:
@@ -319,7 +336,7 @@ def handle_menu_choice(choice, tasks, active_tasks):
     elif choice == 'c':
         complete_task(active_tasks)
     elif choice == 'd':
-        print("deleting task")
+        delete_task(active_tasks)
     elif choice == 'e':
         print("exiting program")
 
