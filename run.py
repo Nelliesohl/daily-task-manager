@@ -291,17 +291,20 @@ def update_task_in_sheet(worksheet, task, column, value):
 
 def complete_task(active_tasks):
     '''
+    Prompts user for task name to mark as completed.
+
+    Takes active_tasks: a list of dictionaries and
+    - Finds the task by name
+    - Validates if the task exists and is not already completed
+    
+    Updates task done field in the tasks worksheet to True
     '''
     task_name = input("\nTask to complete:\n").capitalize()
-    task = find_task_by_name(task_name)
+    task = find_task_by_name(task_name, active_tasks)
     if validate_task_exists(task):
         if validate_pending_status(task):
-
-
-
-    
+            update_task_in_sheet(worksheet=TASKS_WORKSHEET, task=task, column=3, value=True)
         
-
 
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
