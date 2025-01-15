@@ -188,6 +188,18 @@ def get_current_date():
     return datetime.today().strftime('%Y-%m-%d')
 
 
+def add_task(tasks):
+    '''
+    '''
+    item_id = generate_new_id(tasks)
+    name = get_task_name()
+    done = False
+    active = True 
+    created_on = get_current_date()
+
+    new_task = [item_id, name, done, active, created_on]
+
+
 def handle_menu_choice(choice, tasks, active_tasks):
     '''
     Takes:
@@ -197,11 +209,7 @@ def handle_menu_choice(choice, tasks, active_tasks):
     to handle corresponding menu actions.
     '''
     if choice == 'a':
-        item_id = generate_new_id(tasks)
-        name = get_task_name()
-        done = False
-        active = True
-        created_on = get_current_date()
+        add_task(tasks)
     elif choice == 'c':
         print("completing task")
     elif choice == 'd':
