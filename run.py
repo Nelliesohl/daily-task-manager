@@ -192,6 +192,8 @@ def handle_menu_choice(choice, tasks, active_tasks):
     if choice == 'a':
         item_id = generate_new_id(tasks)
         name = get_task_name()
+        done = False
+        active = True
     elif choice == 'c':
         print("completing task")
     elif choice == 'd':
