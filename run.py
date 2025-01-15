@@ -193,7 +193,7 @@ def add_task_to_sheet(new_task):
     Takes new task data: [item_id, name, done, active, created_on]
     and appends it as a new row in the tasks worksheet.
     '''
-    TASKS_WORKSHEET.append_row(task_data)
+    TASKS_WORKSHEET.append_row(new_task)
 
 
 def add_task(tasks):
@@ -351,8 +351,23 @@ def handle_menu_choice(choice, tasks, active_tasks):
         exit_program()
 
 
-tasks = retrieve_data(TASKS_WORKSHEET)
-active_tasks = exclude_inactive_tasks(tasks)
-display_todo_list(active_tasks)
-choice = get_menu_choice()
-handle_menu_choice(choice, tasks, active_tasks)
+def main():
+    '''
+    Runs the main program loop:
+
+    - Retrieves tasks from google sheets
+    - Filters out inactive tasks
+    - Displays todo-list
+    - Prompts the user for a menu choice
+    - Handles the chosen menu action
+    '''
+    while True:
+        tasks = retrieve_data(TASKS_WORKSHEET)
+        active_tasks = exclude_inactive_tasks(tasks)
+        display_todo_list(active_tasks)
+        choice = get_menu_choice()
+        handle_menu_choice(choice, tasks, active_tasks)
+
+
+if __name__ == "__main__":
+    main()
