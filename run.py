@@ -50,6 +50,14 @@ def exclude_inactive_tasks(tasks):
     return active_tasks
 
 
+def strikethrough(text):
+# https://stackoverflow.com/questions/25244454/python-create-strikethrough-strikeout-overstrike-string-type
+    '''
+    Converts normal characters to strikethrough characters and returns the result.
+    '''
+    return ''.join(char + '\u0336' for char in text)
+
+
 def format_task(task):
     '''
     Formats task: dictionary into a presentable string for display.
