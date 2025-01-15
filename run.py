@@ -81,4 +81,5 @@ def display_formatted_tasks(active_tasks):
 
 tasks = retrieve_data(TASKS_WORKSHEET)
 active_tasks = exclude_inactive_tasks(tasks)
+print(APP_HEADING)
 display_formatted_tasks(active_tasks)
